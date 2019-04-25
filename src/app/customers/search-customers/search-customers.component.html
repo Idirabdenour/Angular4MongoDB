@@ -1,5 +1,5 @@
-<h3>Find By Age</h3>
-<div style="width: 300px;">
+<h3 class="container">Find By Age</h3>
+<div class="container">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="lastname">Age</label>
@@ -10,9 +10,20 @@
       <button type="submit" class="btn btn-success">Submit</button>
     </div>
   </form>
+  <h1>Customers List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.age }}</td>
+        <td>Show Detail</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<ul>
-  <li *ngFor="let customer of customers">
-    <h4>{{customer.id}} - {{customer.age}}</h4>
-  </li>
-</ul>

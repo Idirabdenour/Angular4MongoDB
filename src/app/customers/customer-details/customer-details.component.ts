@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe } from '@angular/core';
 
 import { CustomerService } from '../customer.service';
 import { Customer } from '../customer';
 
 import { CustomersListComponent } from '../customers-list/customers-list.component';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'customer-details',
@@ -13,11 +14,15 @@ import { CustomersListComponent } from '../customers-list/customers-list.compone
 export class CustomerDetailsComponent implements OnInit {
 
   @Input() customer: Customer;
+  customers: Observable<Customer[]>;
 
   constructor(private customerService: CustomerService, private listComponent: CustomersListComponent) { }
 
   ngOnInit() {
+    this.reloadData()
+    console.log(this.customers)
   }
+
 
   updateActive(isActive: boolean) {
     this.customerService.updateCustomer(this.customer.id,
@@ -28,6 +33,9 @@ export class CustomerDetailsComponent implements OnInit {
         this.customer = data as Customer;
       },
       error => console.log(error));
+  }
+  reloadData() {
+    this.customers = this.customerService.getCustomersList();
   }
 
   deleteCustomer() {
