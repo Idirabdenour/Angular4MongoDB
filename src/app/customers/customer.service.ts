@@ -35,6 +35,14 @@ export class CustomerService {
     return this.http.get(`${this.baseUrl}/age/${age}`);
   }
 
+  getCustomersByName(name : string): Observable<any>{
+    return this.http.get(`${this.baseUrl}/name/${name}`);
+  }
+
+  getCustomersByFname(fname : string): Observable<any>{
+    return this.http.get(`${this.baseUrl}/fname/${fname}`);
+  }
+
   deleteAll(): Observable<any> {
     return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
   }

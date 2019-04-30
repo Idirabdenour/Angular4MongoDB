@@ -3,12 +3,14 @@
 	<thead>
 		<tr>
 			<th>Name</th>
+			<th>Prénom</th>
 			<th>Age</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let customer of customers | async">
 			<td>{{ customer.name }}</td>
+			<td>{{ customer.fname }}</td>
 			<td>{{ customer.age }}</td>
 			<td>Show Detail</td>
 		</tr>

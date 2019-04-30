@@ -19,7 +19,7 @@ import { SearchCustomersComponent } from './customers/search-customers/search-cu
     CustomersListComponent,
     CustomerDetailsComponent,
     CreateCustomerComponent,
-    SearchCustomersComponent
+    SearchCustomersComponent,
   ],
   imports: [
     BrowserModule,

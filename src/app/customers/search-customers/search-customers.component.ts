@@ -10,12 +10,14 @@ import { CustomerService } from '../customer.service';
 export class SearchCustomersComponent implements OnInit {
 
   age: number;
+  name: string;
+  fname: string;
   customers: Customer[];
 
   constructor(private dateService: CustomerService) { }
 
   ngOnInit() {
-    this.age = 0;
+    this.age = 0
   }
 
   private searchCutomers() {
@@ -24,7 +26,16 @@ export class SearchCustomersComponent implements OnInit {
         this.customers = customers
         console.log(customers)
       })
-
+    this.dateService.getCustomersByName(this.name)
+      .subscribe(customers => {
+        this.customers = customers
+        console.log(customers)
+      })
+    this.dateService.getCustomersByFname(this.fname)
+      .subscribe(customers => {
+        this.customers = customers
+        console.log(customers)
+      })
   }
 
   onSubmit() {

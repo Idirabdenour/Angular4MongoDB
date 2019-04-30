@@ -32,6 +32,8 @@ export class CreateCustomerComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();
+    if(this.customer.name!=null){
+      this.save();
+    }
   }
 }

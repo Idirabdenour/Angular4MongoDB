@@ -5,7 +5,14 @@
       <label for="lastname">Age</label>
       <input type="text" class="form-control" id="age" required [(ngModel)]="age" name="age">
     </div>
-
+    <div class="form-group">
+      <label for="lastname">Nom</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Prénom</label>
+      <input type="text" class="form-control" id="fname" required [(ngModel)]="fname" name="fname">
+    </div>
     <div class="btn-group">
       <button type="submit" class="btn btn-success">Submit</button>
     </div>
@@ -14,13 +21,15 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Nom</th>
+        <th>Prénom</th>
         <th>Age</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let customer of customers">
         <td>{{ customer.name }}</td>
+        <td>{{ customer.fname }}</td>
         <td>{{ customer.age }}</td>
         <td>Show Detail</td>
       </tr>
